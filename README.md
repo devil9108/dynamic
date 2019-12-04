@@ -1,2 +1,0 @@
-# dynamic
-Created with CodeSandbox

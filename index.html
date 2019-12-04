@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic Script loading</title>
+        <link rel='stylesheet' type="text/css" href="main.css">
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <input type='text' placeholder="Enter the concept..."></input>
+         <div class='chatWindow'> 
+        </div>
+        <div class='chatButtonContainer' id='chatButton'><img class='image' src='./25360.png'/></div>
+    
+    <script type='text/javascript'>
+        var chatButton = document.getElementById('chatButton');
+        let fileName = 'main.js';
+        let url = 'https://javascript.info';
+        chatButton.addEventListener('click', e => {
+            let fileRef;
+            let concept = document.getElementsByTagName('input')[0].value;
+            
+            if(concept)
+                url = url+`/search/?query=${concept}&type=article`;
+            console.log(concept);
+            if(fileName){
+                fileRef = document.createElement('script');
+                fileRef.setAttribute('type','text/javascript');
+                fileRef.setAttribute('src',fileName)
+            }
+            if (typeof fileRef!="undefined")
+                document.getElementsByTagName("head")[0].appendChild(fileRef);
+        })
+    </script>
+    </body>
+</html>
